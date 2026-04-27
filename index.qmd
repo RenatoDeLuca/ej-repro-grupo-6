@@ -93,6 +93,22 @@ Seleccionar un resultado específico del artículo (por ejemplo, una tabla de re
 
 ### Procesamiento
 
+
+
+```{r}
+install.packages("pacman")
+pacman::p_load(dplyr, haven, ggplot2)
+casen22 <- read_stata("input/casen_2022.dta")
+
+proc_casen22 <- select(casen22, id_vivienda, sexo, n_ocupados, o1, o2, o3, o9a, s5, nucleo_ajustado, pco_2a, pco_2b, pco2)
+
+
+```
+
+
+
+
+
 - Incluye el código utilizado para procesar los datos, junto con una explicación de cada paso. 
 
 - Los datos originales deben ser llamados desde input/data/original, el código de procesamiento se debe incluir en este mismo archivo (reporte-repro.qmd).
