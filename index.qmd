@@ -98,10 +98,10 @@ Seleccionar un resultado específico del artículo (por ejemplo, una tabla de re
 ```{r}
 install.packages("pacman")
 pacman::p_load(dplyr, haven, ggplot2)
-casen22 <- read_stata("input/casen_2022.dta")
 
-proc_casen22 <- select(casen22, id_vivienda, sexo, n_ocupados, o1, o2, o3, o9a, s5, nucleo_ajustado, pco_2a, pco_2b, pco2)
-
+proc_casen22 <- select(casen22, id_vivienda, sexo, n_ocupados, o1, o2, o3, o9a, s5, nucleo_ajustado, pco2_a, pco2_b, pco2)
+#guardar como csv
+write.csv(proc_casen22, "input/proc_casen22.csv", row.names = FALSE)
 
 ```
 
