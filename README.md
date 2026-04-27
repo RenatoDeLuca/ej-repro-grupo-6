@@ -21,6 +21,8 @@ ej-repro-grupo-6/
  |- index.qmd
  |- input/
  |  |- bib/
+ |  |  |- apa7.csl
+ |  |  |- biblio.bib
  |  |- data/
  |  |  |- original/
  |  |  |- proc/
