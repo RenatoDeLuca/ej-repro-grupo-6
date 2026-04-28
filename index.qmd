@@ -103,6 +103,7 @@ proc_casen22 <- select(casen22, id_vivienda, sexo, n_ocupados, o1, o2, o3, o9a, 
 #guardar como csv
 write.csv(proc_casen22, "input/proc_casen22.csv", row.names = FALSE)
 
+
 ```
 
 
