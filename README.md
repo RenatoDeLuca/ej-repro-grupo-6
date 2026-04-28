@@ -13,6 +13,7 @@ Este proyecto se organiza de la siguiente manera:
 <!-- WORKING_TREE_START -->
 ```text
 ej-repro-grupo-6/
+ |- .gitignore
  |- .vscode/
  |  |- settings.json
  |- README.md
@@ -28,6 +29,7 @@ ej-repro-grupo-6/
  |  |  |- proc/
  |  |- images/
  |  |- original-code/
+ |  |- proc_casen22.csv
  |- libs/
  |  |- ocs.scss
  |- output/
