@@ -13,6 +13,7 @@ Este proyecto se organiza de la siguiente manera:
 <!-- WORKING_TREE_START -->
 ```text
 ej-repro-grupo-6/
+ |- .Rprofile
  |- .gitignore
  |- .vscode/
  |  |- settings.json
@@ -29,7 +30,6 @@ ej-repro-grupo-6/
  |  |  |- proc/
  |  |- images/
  |  |- original-code/
- |  |- proc_casen22.csv
  |- libs/
  |  |- ocs.scss
  |- output/
@@ -41,6 +41,11 @@ ej-repro-grupo-6/
  |  |- prod_analysis.html
  |  |- prod_prep.Rmd
  |  |- prod_prep.html
+ |- renv/
+ |- renv.lock
+ |  |- .gitignore
+ |  |- activate.R
+ |  |- settings.json
  |- scripts/
  |  |- update-working-tree.sh
 ```
