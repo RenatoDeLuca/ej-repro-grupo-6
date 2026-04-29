@@ -119,7 +119,7 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 ```{r}
 
 # Aumentar timeout para la descarga (pues es una base pesada)
-options(timeout = 900)
+options(timeout = 9000)
 
 # Cargar datos desde internet
 load(url("https://zenodo.org/records/19892581/files/casen_2022.RData"))
