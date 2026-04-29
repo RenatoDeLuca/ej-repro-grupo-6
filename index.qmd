@@ -67,7 +67,17 @@ csl: "input/bib/apa7.csl"
 Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025
 titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile".
 - Breve resumen del artículo seleccionado
+
+El trabajo de @palma_desafiando_2025 tiene por objetivo analizar los factores asociados a las inserciones laborales atípicas de género. Porque si bien en Chile la participación laboral femenina ha ido en aumento, aún persiste una fuerte segregación laboral, donde las mujeres tienden a ocuparse en labores de cuidado, salud y educación, mientras que los hombres tienen mayor presencia en sectores productivos como la minería y la construcción.
+
+Así, se indaga en la mayor probabilidad que tienen las mujeres de insertarse en empleos atípicos respecto a los varones, fenómeno que se explicaría por los incentivos económicos y el reconocimiento social que ofrecen esos sectores masculinizados a las mujeres que deciden incursionar en ellos. En contraste, los hombres que se insertan en sectores feminizados enfrentan salarios más bajos y estigma social, lo que funciona como desincentivo en su incorporación a dichos espacios laborales. 
+
+Los resultados revelaron que el capital educativo y económico son factores que facilitan a las mujeres de mayores ingresos desafiar las barreras de género y acceder a empleos masculinizados. En el caso de los hombres, en cambio, un mayor nivel de ingresos y educación, junto con vivir en pareja o tener hijos, se establecen como factores que refuerzan la adherencia a roles tradicionales, frenando su incorporación a los sectores feminizados. En este sentido, el estudio concluye que, para alcanzar una equidad laboral real, se requiere impulsar políticas públicas que no solo apoyen la inserción de las mujeres en empleos no tradicionales, sino que también mejoren el prestigio social y las condiciones laborales de los trabajos feminizados, con el fin de incentivar una mayor participación masculina en dichos sectores.
+
 - Justificación de la selección del artículo
+
+
+
 
 # Evaluación de reproducibilidad
 
@@ -119,7 +129,7 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 ```{r}
 
 # Aumentar timeout para la descarga (pues es una base pesada)
-options(timeout = 9000)
+options(timeout = 900)
 
 # Cargar datos desde internet
 load(url("https://zenodo.org/records/19892581/files/casen_2022.RData"))
@@ -130,7 +140,8 @@ proc_casen22 <- select(casen_2022, id_vivienda, sexo, n_ocupados, s5, nucleo_aju
 
 - Incluye el código utilizado para procesar los datos, junto con una explicación de cada paso. 
 
-- Los datos originales deben ser llamados desde input/data/original, el código de procesamiento se debe incluir en este mismo archivo (reporte-repro.qmd).
+- Los datos originales deben ser llamados desde input/data/original, el código de procesamiento se debe incluir en este mismo
+ archivo (reporte-repro.qmd).
 
 ### Reproducción
 
