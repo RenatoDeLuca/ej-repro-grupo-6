@@ -114,7 +114,7 @@ div.csl-indent {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Reporte de Reproducibilidad</h1>
-            <p class="subtitle lead">Artículo: Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile <br><a href="https://github.com/renatodeluca/ej-repro-grupo-6" target="_blank"><i class="bi bi-github"></i></a></p>
+            <p class="subtitle lead">Artículo: Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile zz <br><a href="https://github.com/renatodeluca/ej-repro-grupo-6" target="_blank"><i class="bi bi-github"></i></a></p>
                       </div>
   </div>
     
@@ -201,14 +201,24 @@ div.csl-indent {
 <ul>
 <li>Justificación de la selección del artículo</li>
 </ul>
+<p>Una de las razones por el cual se seleccionó el articulo de <span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span>, es porque utiliza como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público (disponible en el sitio web del Ministerio de Desarrollo Social y Familia de Chile), cumpliendo así con uno de los criterios de la ciencia abierta, la disponibilidad de los datos. A esto se suma que el artículo presenta una metodología transparente, en la cual las decisiones metodológicas están explicitadas, lo que facilita su comprensión y eventual replicación. Además, la participación de una académica de la Universidad de Chile entre las autoras del trabajo permite establecer un canal de comunicación directo ante cualquier duda que pueda surgir en el proceso de replicación.</p>
 </section>
 <section id="evaluación-de-reproducibilidad" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Evaluación de reproducibilidad</h1>
 <p>Análisis detallado del artículo seleccionado, evaluando los siguientes aspectos:</p>
 <ul>
 <li><strong>Disponibilidad de datos</strong>: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?</li>
+</ul>
+<p>El artículo de <span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span> menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del <a href="https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen">Ministerio de Desarrollo Social y Familia de Chile</a>. Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en <strong>R</strong>, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.</p>
+<ul>
 <li><strong>Disponibilidad de código</strong>: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?</li>
+</ul>
+<p><span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span> no presenta explícitamente el código utilizado para la creación de figuras. Ante esto, se contactó a una de las autoras del trabajo, quien si bien no proporcionó el código, ofreció asesoría sobre cómo replicar las figuras seleccionadas. Aquello, sumado a la metodología del texto, permitió orientar el proceso y llevar a cabo la replicación.</p>
+<ul>
 <li><strong>Documentación</strong>: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda replicar el estudio?</li>
+</ul>
+<p>El artículo de <span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span> presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras.</p>
+<ul>
 <li><strong>Transparencia</strong>: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación?</li>
 </ul>
 </section>
@@ -253,8 +263,8 @@ div.csl-indent {
 </section>
 <section id="carga-de-base-de-datos" class="level4">
 <h4 class="anchored" data-anchor-id="carga-de-base-de-datos">Carga de base de datos</h4>
-<p>A continuación, se carga la base de datos original utilizada en <span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span>, la cual se encuentra clickeando <a href="https://zenodo.org/records/19892581/files/casen_2022.RData">aquí</a> o visitando la página oficial de <a href="https://www.ministeriodesarrollosocial.gob.cl/casen/casen_2022.php">CASEN</a></p>
-<p>La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a GitHub. Es por esto, que primeramente se debe cargar la base de datos en <strong>input/data/original</strong> del repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función <code>select()</code> del paquete <code>dplyr</code> para guardar la nueva de base de datos procesada en <strong>input/data/proc</strong>, acción realizada con el paquete <code>here</code>.</p>
+<p>A continuación, se carga la base de datos original utilizada en <span class="citation" data-cites="palma_desafiando_2025">Palma et&nbsp;al. (<a href="#ref-palma_desafiando_2025" role="doc-biblioref">2025</a>)</span>, la cual se encuentra clickeando <a href="https://zenodo.org/records/19892581/files/casen_2022.RData">aquí</a> o visitando la página oficial de <a href="https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022">CASEN</a></p>
+<p>La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a <strong>GitHub</strong>. Es por esto, que primeramente se debe cargar la base de datos en <em>input/data/original</em> desde el repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función <code>select()</code> del paquete <code>dplyr</code> para guardar la nueva de base de datos procesada en <em>input/data/proc</em>, función realizada con el paquete <code>here</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -266,6 +276,25 @@ div.csl-indent {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Se guarda base de datos procesada</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(proc_casen22, </span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># here("input", "data", "proc", "proc_casen22.rds"), compress = FALSE)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Ya teniendo la base de datos procesada en <em>input/data/proc</em> podemos reproducir la <strong>Figura 1.</strong></p>
+</section>
+<section id="figura-1" class="level4">
+<h4 class="anchored" data-anchor-id="figura-1">Figura 1</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>proc_casen22 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"input/data/proc/proc_casen22.rds"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="figura-5" class="level4">
+<h4 class="anchored" data-anchor-id="figura-5">Figura 5</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>proc_casen22 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"input/data/proc/proc_casen22.rds"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 

@@ -85,7 +85,7 @@ Análisis detallado del artículo seleccionado, evaluando los siguientes aspecto
 
   -   **Disponibilidad de datos**: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?
 
-El artículo de @palma_desafiando_2025 menciona explícitamente que usó como fuente de datos la CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del Ministerio de Desarrollo Social y Familia de Chile. Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en Visual Studio Code, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
+El artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
 
   -   **Disponibilidad de código**: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?
 
@@ -137,9 +137,9 @@ library(here)
 ```
 
 #### Carga de base de datos
-A continuación, se carga la base de datos original utilizada en @palma_desafiando_2025, la cual se encuentra clickeando [aquí](https://zenodo.org/records/19892581/files/casen_2022.RData) o visitando la página oficial de [CASEN](https://www.ministeriodesarrollosocial.gob.cl/casen/casen_2022.php)
+A continuación, se carga la base de datos original utilizada en @palma_desafiando_2025, la cual se encuentra clickeando [aquí](https://zenodo.org/records/19892581/files/casen_2022.RData) o visitando la página oficial de [CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022)
 
- La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a GitHub. Es por esto, que primeramente se debe cargar la base de datos en **input/data/original** desde el repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr` para guardar la nueva de base de datos procesada en **input/data/proc**, función realizada con el paquete `here`.
+ La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **GitHub**. Es por esto, que primeramente se debe cargar la base de datos en *input/data/original* desde el repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr` para guardar la nueva de base de datos procesada en *input/data/proc*, función realizada con el paquete `here`.
 
 ```{r}
 #Se carga base de datos CASEN desde local
@@ -153,7 +153,7 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 
 ```
 
-Ya teniendo la base de datos procesada en **input/data/proc** podemos reproducir la **Figura 1.**
+Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 1.**
 
 #### Figura 1
 ```{r}
