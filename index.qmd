@@ -1,7 +1,7 @@
 ---
 title: "Reporte de Reproducibilidad"
 subtitle: "Artículo: Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile
- <br><a href='https://github.com/renatodeluca/ej-repro-grupo-6' target='_blank' ><i class='bi bi-github'></i></a>" # reemplazar con dirección al repositorio del proyecto
+zz <br><a href='https://github.com/renatodeluca/ej-repro-grupo-6' target='_blank' ><i class='bi bi-github'></i></a>" # reemplazar con dirección al repositorio del proyecto
 author:
   - name: Renato De Luca Escobar
     email: renato.deluca@ug.uchile.cl
@@ -76,7 +76,7 @@ Los resultados revelaron que el capital educativo y económico son factores que 
 
 - Justificación de la selección del artículo
 
-
+Una de las razones por el cual se seleccionó el articulo de @palma_desafiando_2025, es porque utiliza como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público (disponible en el sitio web del Ministerio de Desarrollo Social y Familia de Chile), cumpliendo así con uno de los criterios de la ciencia abierta, la disponibilidad de los datos. A esto se suma que el artículo presenta una metodología transparente, en la cual las decisiones metodológicas están explicitadas, lo que facilita su comprensión y eventual replicación. Además, la participación de una académica de la Universidad de Chile entre las autoras del trabajo permite establecer un canal de comunicación directo ante cualquier duda que pueda surgir en el proceso de replicación.
 
 
 # Evaluación de reproducibilidad
@@ -84,8 +84,18 @@ Los resultados revelaron que el capital educativo y económico son factores que 
 Análisis detallado del artículo seleccionado, evaluando los siguientes aspectos:
 
   -   **Disponibilidad de datos**: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?
+
+El artículo de @palma_desafiando_2025 menciona explícitamente que usó como fuente de datos la CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del Ministerio de Desarrollo Social y Familia de Chile. Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en Visual Studio Code, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
+
   -   **Disponibilidad de código**: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?
-  -   **Documentación**: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda replicar el estudio?
+
+@palma_desafiando_2025 no presenta explícitamente el código utilizado para la creación de figuras. Ante esto, se contactó a una de las autoras del trabajo, quien si bien no proporcionó el código, ofreció asesoría sobre cómo replicar las figuras seleccionadas. Aquello, sumado a la metodología del texto, permitió orientar el proceso y llevar a cabo la replicación.
+
+  -   **Documentación**: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda 
+  replicar el estudio?
+
+El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras. 
+
   -   **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación?   
 
 # Análisis reproducible
