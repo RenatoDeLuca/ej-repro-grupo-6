@@ -7,8 +7,8 @@ author:
     email: renato.deluca@ug.uchile.cl
     affiliations:
       - ref: 1
-  - name: Autor 2
-    email: mail@mail.com 
+  - name: Benjamín Belmar
+    email: benjamin.belmar@ug.uchile.cl
     affiliations:
       - ref: 1
   - name: Autor 3
@@ -64,7 +64,7 @@ csl: "input/bib/apa7.csl"
 
 # Selección de artículo/reporte
 
-Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025
+Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025. 
 titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile".
 - Breve resumen del artículo seleccionado
 
