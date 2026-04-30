@@ -3,11 +3,11 @@ title: "Reporte de Reproducibilidad"
 subtitle: "Artículo: Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile
  <br><a href='https://github.com/renatodeluca/ej-repro-grupo-6' target='_blank' ><i class='bi bi-github'></i></a>" # reemplazar con dirección al repositorio del proyecto
 author:
-  - name: Renato De Luca
+  - name: Renato De Luca Escobar
     email: renato.deluca@ug.uchile.cl
     affiliations:
       - ref: 1
-  - name: Benjamín Belmar
+  - name: Benjamín Belmar Álvarez
     email: benjamin.belmar@ug.uchile.cl
     affiliations:
       - ref: 1
