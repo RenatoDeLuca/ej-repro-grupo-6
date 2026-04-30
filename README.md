@@ -28,6 +28,7 @@ ej-repro-grupo-6/
  |  |- data/
  |  |  |- original/
  |  |  |- proc/
+ |  |  |  |- proc_casen22.rds
  |  |- images/
  |  |- original-code/
  |- libs/
