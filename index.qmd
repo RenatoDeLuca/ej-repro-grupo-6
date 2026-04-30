@@ -103,11 +103,14 @@ Seleccionar un resultado específico del artículo (por ejemplo, una tabla de re
 ### Procesamiento
 
 #### Carga de paquetes
-En primer lugar, se cargan los paquetes `dplyr`, `haven`,`readr` y `ggplot2` en su versión utilizada para el ejercicio de reproducción. Esto es posible gracias al paquete `renv`, el cual permite gestionar las dependencias de R y asegurar que se utilicen las mismas versiones de los paquetes que se usaron originalmente para el análisis.
+En primer lugar, se cargan los paquetes `here`, `dplyr`, `haven`,`readr` y `ggplot2` en su versión utilizada para el ejercicio de reproducción. Esto es posible gracias al paquete `renv`, el cual permite gestionar las dependencias de R y asegurar que se utilicen las mismas versiones de los paquetes que se usaron originalmente para el análisis.
 
 Si es la primera vez que se ejecuta el código, es necesario inicializar el entorno de `renv` con `renv::init()`. En sesiones posteriores, se debe ejecutar `renv::restore()` para restaurar el entorno con las versiones de los paquetes utilizadas originalmente. 
 
 ```{r}
+#| results: false
+#| message: false
+#| warning: false
 install.packages("renv")
 # Ejecutar solo la primera vez para inicializas
 renv::init() 
@@ -115,28 +118,43 @@ renv::init()
 # Ejecutar en sesiones siguientes para restaurar el entorno
 renv::restore()
 
+
 # Cargar librerías necesarias
 library(dplyr)
 library(haven)
 library(ggplot2)
 library(readr)
+library(here)
 ```
 
 #### Carga de base de datos
-A continuación, se carga la base de datos original utilizada en @palma_desafiando_2025, la cual se encuentra clickeando [aquí](https://zenodo.org/records/19892581/files/casen_2022.RData), el link directo a Zenodo, donde se aloja la base, o visitando la página oficial de [CASEN](https://www.ministeriodesarrollosocial.gob.cl/casen/casen_2022.php)
+A continuación, se carga la base de datos original utilizada en @palma_desafiando_2025, la cual se encuentra clickeando [aquí](https://zenodo.org/records/19892581/files/casen_2022.RData) o visitando la página oficial de [CASEN](https://www.ministeriodesarrollosocial.gob.cl/casen/casen_2022.php)
 
-. Para reproducir el resultado seleccionado, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr`.
+ La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a GitHub. Es por esto, que primeramente se debe cargar la base de datos en **input/data/original** del repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr` para guardar la nueva de base de datos procesada en **input/data/proc**, acción realizada con el paquete `here`.
+```{r}
+#Se carga base de datos CASEN
+#load("input/data/original/casen_2022.RData")
+# Seleccionar variables necesarias para reproducir el resultado
+#proc_casen22 <- casen_2022 %>% 
+  #select(sexo, pco2, activ, folio, nucleo, edad, rama1_sub_rev4, rama4_sub_rev4)
+#Se guarda base de datos procesada
+#saveRDS(proc_casen22, 
+ # here("input", "data", "proc", "proc_casen22.rds"), compress = FALSE)
+```
+
+Ya teniendo la base de datos procesada en **input/data/proc** podemos reproducir la **Figura 1.**
+
+#### Figura 1
+
 ```{r}
 
-# Aumentar timeout para la descarga (pues es una base pesada)
-options(timeout = 900)
-
-# Cargar datos desde internet
-load(url("https://zenodo.org/records/19892581/files/casen_2022.RData"))
-
-# Seleccionar variables necesarias para reproducir el resultado
-proc_casen22 <- select(casen_2022, sexo, pco2, activ, folio, nucleo, edad, rama1_sub_rev4, rama4_sub_rev4)
 ```
+
+
+
+
+
+
 
 - Incluye el código utilizado para procesar los datos, junto con una explicación de cada paso. 
 
