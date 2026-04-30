@@ -135,7 +135,7 @@ options(timeout = 900)
 load(url("https://zenodo.org/records/19892581/files/casen_2022.RData"))
 
 # Seleccionar variables necesarias para reproducir el resultado
-proc_casen22 <- select(casen_2022, sexo, pco2, pco2_b, activ, folio, nucleo, edad)
+proc_casen22 <- select(casen_2022, sexo, pco2, activ, folio, nucleo, edad)
 ```
 
 - Incluye el código utilizado para procesar los datos, junto con una explicación de cada paso. 
