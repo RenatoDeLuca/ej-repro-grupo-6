@@ -11,12 +11,12 @@ author:
     email: benjamin.belmar@ug.uchile.cl
     affiliations:
       - ref: 1
-  - name: Autor 3
+  - name: Bastián Martin
     email: mail@mail.com 
     affiliations:
       - ref: 1 
-  - name: Autor 4
-    email: mail@mail.com 
+  - name: Maite Jullian Corral
+    email: maite.jullian@ug.uchile.cl
     affiliations:
       - ref: 1
 affiliations: 
@@ -96,15 +96,20 @@ El artículo de @palma_desafiando_2025 menciona explícitamente que se usa como 
 
 El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras. 
 
-  -   **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación?   
+  -   **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación? 
+
+@palma_desafiando_2025 no presenta información explícita sobre posibles conflictos de interés. Mas si menciona que el estudio fue financiado por la Agencia Nacional de Investigación y Desarrollo ANID, lo que aporta a la transparencia de la investigación.  
 
 # Análisis reproducible
 
 Seleccionar un resultado específico del artículo (por ejemplo, una tabla de resultados o una figura) y tratar de reproducirlo utilizando los datos y el código proporcionados. Documentar el proceso de reproducción, incluyendo cualquier dificultad encontrada y cómo se resolvió.
 
+Se seleccionó para la reproducción la **Figura 1** y la **Figura 5** del artículo, las cuales corresponden a un gráfico de la segregación género en el mercado laboral y a un gráfico personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente.
+
 ## Resultado a reproducir
 
 - Imagen de tabla(s), figura(s) o resultado específico del artículo seleccionado, junto a una breve descripción.
+
 
 ## Proceso de reproducción
 
@@ -258,8 +263,6 @@ ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
     axis.text.y = element_text(size = 9),
     axis.text.x = element_text(size = 9)
   )
-
-
 
 ```
 
