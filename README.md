@@ -35,6 +35,7 @@ ej-repro-grupo-6/
  |  |- ocs.scss
  |- output/
  |  |- graphs/
+ |  |  |- figura2_palmaetal2025.png
  |  |  |- figura5_palmaetal2025.png
  |  |- tables/
  |- processing/
