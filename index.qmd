@@ -204,14 +204,39 @@ datos <- datos %>% mutate(sexo = case_when(
 ))
 
 #porcentaje de ocupación por sexo
-graf1 <- datos %>%
+ocu_s <- datos %>%
   group_by(ocupacion, sexo) %>%
   summarise(n = n(), .groups = "drop") %>%
   group_by(ocupacion) %>%
   mutate(porcentaje = n / sum(n) * 100)
 
+#porcentaje total de segregación
+c_total <- datos %>%
+  filter(activ == 1) %>%
+  group_by(sexo) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  mutate(
+    porcentaje = n / sum(n) * 100
+  )
+
+#se unen ambos
+graf1 <- bind_rows(ocu_s, c_total)
+
+#recodificar
+graf1 <- graf1 %>%
+  mutate(ocupacion = ifelse(is.na(ocupacion), "Total", ocupacion))
+
+#orden de mayor participación fem a menor
+orden <- graf1 %>%
+  filter(sexo == "Mujer") %>%  # ajusta según el valor exacto de tu variable
+  arrange(porcentaje) %>%
+  pull(ocupacion)
+
+graf1 <- graf1 %>%
+  mutate(ocupacion = factor(ocupacion, levels = orden))
+
 #grafico
-ggplot(graf1, aes(x = porcentaje, y = reorder(ocupacion, porcentaje), fill = sexo)) +
+ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
   geom_bar(stat = "identity", position = "dodge") +
   geom_text(
     aes(label = paste0(round(porcentaje, 1), "%")),
@@ -224,25 +249,6 @@ ggplot(graf1, aes(x = porcentaje, y = reorder(ocupacion, porcentaje), fill = sex
     labels = scales::percent_format(scale = 1),
     limits = c(0, 110)  # límite mayor a 100 para que quepan las etiquetas
   ) +
-  labs(x = NULL, y = NULL, fill = NULL) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor = element_blank(),
-    axis.text.y = element_text(size = 9),
-    axis.text.x = element_text(size = 9)
-  )
-  
-  
-  labs(
-    title = "Comparativa por Género",
-    x = "Categoría (Variable Bla)",
-    y = "Valor / Cantidad",
-    fill = "Género"
-  ) +
-  scale_fill_manual(values = c("Hombre" = "#404040", "Mujer" = "#A0A0A0")) +
-  scale_x_continuous(labels = scales::percent_format(scale = 1), limits = c(0, 100)) +
   labs(x = NULL, y = NULL, fill = NULL) +
   theme_minimal() +
   theme(
