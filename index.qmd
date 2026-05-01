@@ -158,9 +158,9 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 
 ```
 
-Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 1.**
+Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2**  y la **Figura 5** de @palma_desafiando_2025
 
-#### Figura 1
+#### Figura 2
 ```{r}
 datos <- readRDS("input/data/proc/proc_casen22.rds")
 #Seleccionar variables y filtrar
@@ -261,8 +261,16 @@ ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     axis.text.y = element_text(size = 9),
-    axis.text.x = element_text(size = 9)
-  )
+    axis.text.x = element_text(size = 9))
+
+ggsave(
+  filename = "output/graphs/figura2_palmaetal2025.png",
+  plot = p_fig5,
+  width = 8,
+  height = 6,
+  dpi = 300,
+  bg = "white"
+)
 
 ```
 
