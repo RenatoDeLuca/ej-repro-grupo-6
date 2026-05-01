@@ -161,6 +161,13 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2**  y la **Figura 5** de @palma_desafiando_2025
 
 #### Figura 2
+
+En primer lugar, se seleccionan
+
+```{r}
+
+```
+
 ```{r}
 datos <- readRDS("input/data/proc/proc_casen22.rds")
 #Seleccionar variables y filtrar
@@ -277,6 +284,8 @@ ggsave(
 #### Figura 5
 
 
+Para reproducir la *Figura 5* de @palma_desafiando_2025, primeramente se deben seleccionar las variables
+
 ```{r}
 
 proc_casen22 <- readRDS("input/data/proc/proc_casen22.rds")
@@ -392,7 +401,7 @@ p_fig5 <- ggplot(fig5_data, aes(x = x_grupo, y = pct)) +
   )
 
 print(p_fig5)
-#guardar en output/graphs
+#guardar en output&
 ggsave(
   filename = "output/graphs/figura5_palmaetal2025.png",
   plot = p_fig5,
