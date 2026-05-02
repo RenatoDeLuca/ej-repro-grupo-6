@@ -11,7 +11,7 @@ author:
     email: benjamin.belmar@ug.uchile.cl
     affiliations:
       - ref: 1
-  - name: Bastián Martin
+  - name: Bastián Martin Gerdes
     email: bastian.martin@ug.uchile.cl
     affiliations:
       - ref: 1 
@@ -60,17 +60,13 @@ bibliography: "input/bib/biblio.bib"
 csl: "input/bib/apa7.csl"
 ---
 
-
-
 # Selección de artículo/reporte
 
-Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025,
-titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile".
-- Breve resumen del artículo seleccionado
+Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025, titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile". - Breve resumen del artículo seleccionado
 
 El trabajo de @palma_desafiando_2025 tiene por objetivo analizar los factores asociados a las inserciones laborales atípicas de género. Porque si bien en Chile la participación laboral femenina ha ido en aumento, aún persiste una fuerte segregación laboral, donde las mujeres tienden a ocuparse en labores de cuidado, salud y educación, mientras que los hombres tienen mayor presencia en sectores productivos como la minería y la construcción.
 
-Así, se indaga en la mayor probabilidad que tienen las mujeres de insertarse en empleos atípicos respecto a los varones, fenómeno que se explicaría por los incentivos económicos y el reconocimiento social que ofrecen esos sectores masculinizados a las mujeres que deciden incursionar en ellos. En contraste, los hombres que se insertan en sectores feminizados enfrentan salarios más bajos y estigma social, lo que funciona como desincentivo en su incorporación a dichos espacios laborales. 
+Así, se indaga en la mayor probabilidad que tienen las mujeres de insertarse en empleos atípicos respecto a los varones, fenómeno que se explicaría por los incentivos económicos y el reconocimiento social que ofrecen esos sectores masculinizados a las mujeres que deciden incursionar en ellos. En contraste, los hombres que se insertan en sectores feminizados enfrentan salarios más bajos y estigma social, lo que funciona como desincentivo en su incorporación a dichos espacios laborales.
 
 Los resultados revelaron que el capital educativo y económico son factores que facilitan a las mujeres de mayores ingresos desafiar las barreras de género y acceder a empleos masculinizados. En el caso de los hombres, en cambio, un mayor nivel de ingresos y educación, junto con vivir en pareja o tener hijos, se establecen como factores que refuerzan la adherencia a roles tradicionales, frenando su incorporación a los sectores feminizados. En este sentido, el estudio concluye que, para alcanzar una equidad laboral real, se requiere impulsar políticas públicas que no solo apoyen la inserción de las mujeres en empleos no tradicionales, sino que también mejoren el prestigio social y las condiciones laborales de los trabajos feminizados, con el fin de incentivar una mayor participación masculina en dichos sectores.
 
@@ -78,27 +74,25 @@ Los resultados revelaron que el capital educativo y económico son factores que 
 
 Una de las razones por el cual se seleccionó el articulo de @palma_desafiando_2025, es porque utiliza como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público (disponible en el sitio web del Ministerio de Desarrollo Social y Familia de Chile), cumpliendo así con uno de los criterios de la ciencia abierta, la disponibilidad de los datos. A esto se suma que el artículo presenta una metodología transparente, en la cual las decisiones metodológicas están explicitadas, lo que facilita su comprensión y eventual replicación. Además, la participación de una académica de la Universidad de Chile entre las autoras del trabajo permite establecer un canal de comunicación directo ante cualquier duda que pueda surgir en el proceso de replicación.
 
-
 # Evaluación de reproducibilidad
 
 Análisis detallado del artículo seleccionado, evaluando los siguientes aspectos:
 
-  -   **Disponibilidad de datos**: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?
+- **Disponibilidad de datos**: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?
 
 El artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
 
-  -   **Disponibilidad de código**: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?
+- **Disponibilidad de código**: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?
 
 @palma_desafiando_2025 no presenta explícitamente el código utilizado para la creación de figuras. Ante esto, se contactó a una de las autoras del trabajo, quien si bien no proporcionó el código, ofreció asesoría sobre cómo replicar las figuras seleccionadas. Aquello, sumado a la metodología del texto, permitió orientar el proceso y llevar a cabo la replicación.
 
-  -   **Documentación**: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda 
-  replicar el estudio?
+- **Documentación**: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda replicar el estudio?
 
-El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras. 
+El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras.
 
-  -   **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación? 
+- **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación?
 
-@palma_desafiando_2025 no presenta información explícita sobre posibles conflictos de interés. Mas si menciona que el estudio fue financiado por la Agencia Nacional de Investigación y Desarrollo ANID, lo que aporta a la transparencia de la investigación.  
+@palma_desafiando_2025 no presenta información explícita sobre posibles conflictos de interés. Mas si menciona que el estudio fue financiado por la Agencia Nacional de Investigación y Desarrollo ANID, lo que aporta a la transparencia de la investigación.
 
 # Análisis reproducible
 
@@ -110,7 +104,6 @@ Se seleccionó para la reproducción la **Figura 1** y la **Figura 5** del artí
 
 - Imagen de tabla(s), figura(s) o resultado específico del artículo seleccionado, junto a una breve descripción.
 
-
 ## Proceso de reproducción
 
 - Descripción detallada del proceso seguido para reproducir el resultado seleccionado, incluyendo los pasos realizados, las herramientas utilizadas, y cualquier ajuste necesario para lograr la reproducción. Incluye las siguientes sub secciones:
@@ -118,9 +111,10 @@ Se seleccionó para la reproducción la **Figura 1** y la **Figura 5** del artí
 ### Procesamiento
 
 #### Carga de paquetes
+
 En primer lugar, se cargan los paquetes `dplyr`, `haven`,`readr` y `ggplot2` en su versión utilizada para el ejercicio de reproducción. Esto es posible gracias al paquete `renv`, el cual permite gestionar las dependencias de R y asegurar que se utilicen las mismas versiones de los paquetes que se usaron originalmente para el análisis.
 
-Si es la primera vez que se ejecuta el código, es necesario inicializar el entorno de `renv` con `renv::init()`. En sesiones posteriores, se debe ejecutar `renv::restore()` para restaurar el entorno con las versiones de los paquetes utilizadas originalmente. 
+Si es la primera vez que se ejecuta el código, es necesario inicializar el entorno de `renv` con `renv::init()`. En sesiones posteriores, se debe ejecutar `renv::restore()` para restaurar el entorno con las versiones de los paquetes utilizadas originalmente.
 
 ```{r}
 #| results: false
@@ -142,9 +136,10 @@ library(here)
 ```
 
 #### Carga de base de datos
+
 A continuación, se carga la base de datos original utilizada en @palma_desafiando_2025, la cual se encuentra clickeando [aquí](https://zenodo.org/records/19892581/files/casen_2022.RData) o visitando la página oficial de [CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022)
 
- La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **GitHub**. Es por esto, que primeramente se debe cargar la base de datos en *input/data/original* desde el repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr` para guardar la nueva de base de datos procesada en *input/data/proc*, función realizada con el paquete `here`.
+La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **GitHub**. Es por esto, que primeramente se debe cargar la base de datos en *input/data/original* desde el repositorio local. Posteriormente, se seleccionan las variables necesarias utilizando la función `select()` del paquete `dplyr` para guardar la nueva de base de datos procesada en *input/data/proc*, función realizada con el paquete `here`.
 
 ```{r}
 #Se carga base de datos CASEN desde local
@@ -158,11 +153,15 @@ A continuación, se carga la base de datos original utilizada en @palma_desafian
 
 ```
 
-Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2**  y la **Figura 5** de @palma_desafiando_2025
+Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2** y la **Figura 5** de @palma_desafiando_2025
 
 #### Figura 2
 
-En primer lugar, para reproducir la **Figura 2**, se seleccionan las variables "rama1" "sexo" y "activ". La variable "rama1" corresponde a una clasificación de las ramas de actividad económica en base a la CIIU. Por otro lado, la variable "activ" indica la condición de actividad de la persona, es decir, si se encuentra ocupada (1), desocupada (2) o inactiva (3). Para esta figura, se seleccionan únicamente las personas ocupadas.
+En primer lugar, para reproducir la **Figura 2**, se seleccionan las variables "rama1" "sexo" y "activ". La variable "rama1" corresponde a una clasificación de las ramas de actividad económica en base a la CIIU. Por otro lado, la variable "activ" indica la condición de actividad de la persona, es decir, si se encuentra ocupada (1), desocupada (2) o inactiva (3).
+
+Para esta figura, se seleccionan únicamente las personas ocupadas y recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones. Junto a esto se filtran los datos perdidos para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
+
+La visualización se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir.
 
 ```{r}
 datos <- readRDS("input/data/proc/proc_casen22.rds")
@@ -173,7 +172,7 @@ datos <- datos %>%
 datos <- datos %>% select(rama1, sexo, activ) 
 
 
-#recodificación falta la categoría total!! y ver como se pueden ordenar
+#recodificación.
 datos <- datos %>% mutate(ocupacion = case_when(
   rama1 == 1  ~ "Agricultura, ganadería, silvicultura y pesca",
   rama1 == 2  ~ "Explotación de minas y canteras",
@@ -275,11 +274,9 @@ ggsave(
   dpi = 300,
   bg = "white"
 )
-
 ```
 
 #### Figura 5
-
 
 Para reproducir la *Figura 5* de @palma_desafiando_2025, primeramente se deben seleccionar las variables
 
