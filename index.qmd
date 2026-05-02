@@ -62,7 +62,7 @@ csl: "input/bib/apa7.csl"
 
 # Selección de artículo/reporte
 
-Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025, titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile". 
+Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025, titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile". - Breve resumen del artículo seleccionado
 
 El trabajo de @palma_desafiando_2025 tiene por objetivo analizar los factores asociados a las inserciones laborales atípicas de género. Porque si bien en Chile la participación laboral femenina ha ido en aumento, aún persiste una fuerte segregación laboral, donde las mujeres tienden a ocuparse en labores de cuidado, salud y educación, mientras que los hombres tienen mayor presencia en sectores productivos como la minería y la construcción.
 
@@ -100,11 +100,11 @@ Seleccionar un resultado específico del artículo (por ejemplo, una tabla de re
 ## Resultado a reproducir
 
 Se seleccionó para la reproducción la **Figura 2**  de @palma_desafiando_2025, la cual corresponden a un gráfico de la segregación género en el mercado laboral 
-![Figura 2. Porcentaje de personas ocupadas por rama de actividad económica y sexo](output/graphs/fig_2_palma_etal_2025_original.png)
+![Figura 2. Porcentaje de personas ocupadas por rama de actividad económica y sexo](input/images/fig_2_palma_et_al_2025_original.png)
 
 
 Además se seleccionó la **Figura 5** de @palma_desafiando_2025, gráfico de personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente.
-![Figura 5. Personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de 5 años](output/graphs/fig_5_palma_etal_2025.png)
+![Figura 5. Personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de 5 años](input/images/fig_5_palma_etal_2025.png)
 
 
 ## Proceso de reproducción
@@ -257,8 +257,7 @@ graf1 <- graf1 %>%
 
 
 ```{r}
-#| message: false
-#| warning: false
+
 #grafico
 p_fig2 <- ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
   geom_bar(stat = "identity", position = "dodge") +
