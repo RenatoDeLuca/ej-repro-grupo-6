@@ -30,6 +30,8 @@ ej-repro-grupo-6/
  |  |  |- proc/
  |  |  |  |- proc_casen22.rds
  |  |- images/
+ |  |  |- fig_2_palma_et_al_2025_original.png
+ |  |  |- fig_5_palma_etal_2025.png
  |  |- original-code/
  |- libs/
  |  |- ocs.scss
