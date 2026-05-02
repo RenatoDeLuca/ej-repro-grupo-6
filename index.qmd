@@ -12,7 +12,7 @@ author:
     affiliations:
       - ref: 1
   - name: Bastián Martin
-    email: mail@mail.com 
+    email: bastian.martin@ug.uchile.cl
     affiliations:
       - ref: 1 
   - name: Maite Jullian Corral
@@ -255,7 +255,8 @@ ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
   scale_fill_manual(values = c("Hombre" = "#404040", "Mujer" = "#A0A0A0")) +
   scale_x_continuous(
     labels = scales::percent_format(scale = 1),
-    limits = c(0, 110)  # límite mayor a 100 para que quepan las etiquetas
+    limits = c(0, 110), # límite mayor a 100 para que quepan las etiquetas
+    breaks = seq(0, 100, by = 10)
   ) +
   labs(x = NULL, y = NULL, fill = NULL) +
   theme_minimal() +
