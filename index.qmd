@@ -62,7 +62,7 @@ csl: "input/bib/apa7.csl"
 
 # Selección de artículo/reporte
 
-Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025, titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile". - Breve resumen del artículo seleccionado
+Para la realización del primer reporte de reproducibilidad en el márgen del curso electivo de Ciencia Social Abierta, se selecciona el trabajo de @palma_desafiando_2025, titulado "Desafiando la segregación de género en el mercado laboral: Factores que inciden en las inserciones laborales atípicas en términos de género en Chile". 
 
 El trabajo de @palma_desafiando_2025 tiene por objetivo analizar los factores asociados a las inserciones laborales atípicas de género. Porque si bien en Chile la participación laboral femenina ha ido en aumento, aún persiste una fuerte segregación laboral, donde las mujeres tienden a ocuparse en labores de cuidado, salud y educación, mientras que los hombres tienen mayor presencia en sectores productivos como la minería y la construcción.
 
@@ -97,11 +97,15 @@ El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cu
 Seleccionar un resultado específico del artículo (por ejemplo, una tabla de resultados o una figura) y tratar de reproducirlo utilizando los datos y el código proporcionados. Documentar el proceso de reproducción, incluyendo cualquier dificultad encontrada y cómo se resolvió.
 
 
-Se seleccionó para la reproducción la **Figura 1** y la **Figura 5** del artículo, las cuales corresponden a un gráfico de la segregación género en el mercado laboral y a un gráfico personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente.
-
 ## Resultado a reproducir
 
-- Imagen de tabla(s), figura(s) o resultado específico del artículo seleccionado, junto a una breve descripción.
+Se seleccionó para la reproducción la **Figura 2**  de @palma_desafiando_2025, la cual corresponden a un gráfico de la segregación género en el mercado laboral 
+![Figura 2. Porcentaje de personas ocupadas por rama de actividad económica y sexo](output/graphs/fig_2_palma_etal_2025_original.png)
+
+
+Además se seleccionó la **Figura 5** de @palma_desafiando_2025, gráfico de personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente.
+![Figura 5. Personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de 5 años](output/graphs/fig_5_palma_etal_2025.png)
+
 
 ## Proceso de reproducción
 
@@ -132,6 +136,7 @@ library(haven)
 library(ggplot2)
 library(readr)
 library(here)
+library(scales)
 ```
 
 #### Carga de base de datos
@@ -155,8 +160,13 @@ La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **Git
 Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2** y la **Figura 5** de @palma_desafiando_2025
 
 #### Figura 2
+Para reproducir la **Figura 2** de @palma_desafiando_2025, primeramente se deben seleccionar las siguientes variables:
 
-En primer lugar, para reproducir la **Figura 2**, se seleccionan las variables "rama1" "sexo" y "activ". La variable "rama1" corresponde a una clasificación de las ramas de actividad económica en base a la CIIU. Por otro lado, la variable "activ" indica la condición de actividad de la persona, es decir, si se encuentra ocupada (1), desocupada (2) o inactiva (3).
+- **"rama1"**: variable que indica la rama de actividad económica a la que se dedica la persona, codificada según la clasificación CIIU a 1 dígito.
+
+- **"sexo"**: variable que indica el sexo de la persona, codificada como 1 para hombres y 2 para mujeres.
+
+- **"activ"**: variable que indica la condición de actividad de la persona, codificada como 1 para ocupados, 2 para desocupados y 3 para inactivos.
 
 Para esta figura, se seleccionan únicamente las personas ocupadas y recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones. Junto a esto se filtran los datos perdidos para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
 
@@ -241,19 +251,27 @@ orden <- graf1 %>%
 graf1 <- graf1 %>%
   mutate(ocupacion = factor(ocupacion, levels = orden))
 
+```
+
+
+
+
+```{r}
+#| message: false
+#| warning: false
 #grafico
-ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
+p_fig2 <- ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
   geom_bar(stat = "identity", position = "dodge") +
   geom_text(
     aes(label = paste0(round(porcentaje, 1), "%")),
-    position = position_dodge(width = 0.8),  # mismo width que el geom_bar
-    hjust = -0.1,                             # etiqueta justo al final de la barra
+    position = position_dodge(width = 0.8),
+    hjust = -0.1,
     size = 3
   ) +
   scale_fill_manual(values = c("Hombre" = "#404040", "Mujer" = "#A0A0A0")) +
   scale_x_continuous(
     labels = scales::percent_format(scale = 1),
-    limits = c(0, 110), # límite mayor a 100 para que quepan las etiquetas
+    limits = c(0, 110),
     breaks = seq(0, 100, by = 10)
   ) +
   labs(x = NULL, y = NULL, fill = NULL) +
@@ -267,25 +285,32 @@ ggplot(graf1, aes(x = porcentaje, y = ocupacion, fill = sexo)) +
 
 ggsave(
   filename = "output/graphs/figura2_palmaetal2025.png",
-  plot = p_fig5,
+  plot = p_fig2,
   width = 8,
   height = 6,
   dpi = 300,
-  bg = "white"
-)
+  bg = "white")
+print(p_fig2)
 ```
+
 
 #### Figura 5
 
 Para reproducir la **Figura 5** de @palma_desafiando_2025, primeramente se deben seleccionar las siguientes variables:
 
-- "sexo": variable que indica el sexo de la persona, codificada como 1 para hombres y 2 para mujeres.
-- "pco2": variable que indica la relación de parentesco con el jefe de hogar, donde los códigos 4, 5 y 6 corresponden a hijos/as.
-- "activ": variable que indica la condición de actividad de la persona, codificada como 1 para ocupados, 2 para desocupados y 3 para inactivos.
-- "folio" y "nucleo": variables que identifican el hogar y el núcleo familiar, respectivamente.
-- "edad": variable que indica la edad de la persona.
-- "rama4": variable que indica la rama de actividad económica a la que se dedica la persona, codificada según la clasificación CIIU a 4 dígitos.
-- "expr": variable que indica la expansión o peso de la persona en la muestra, utilizada para obtener estimaciones representativas a nivel nacional.
+- **"sexo"**: variable que indica el sexo de la persona, codificada como 1 para hombres y 2 para mujeres.
+
+- **"pco2"**: variable que indica la relación de parentesco con el jefe de hogar, donde los códigos 4, 5 y 6 corresponden a hijos/as.
+
+- **"activ"**: variable que indica la condición de actividad de la persona, codificada como 1 para ocupados, 2 para desocupados y 3 para inactivos.
+
+- "**folio" y "nucleo"**: variables que identifican el hogar y el núcleo familiar, respectivamente.
+
+- **"edad"**: variable que indica la edad de la persona.
+
+- **"rama4"**: variable que indica la rama de actividad económica a la que se dedica la persona, codificada según la clasificación CIIU a 4 dígitos.
+
+- **"expr"**: variable que indica la expansión o peso de la persona en la muestra, utilizada para obtener estimaciones representativas a nivel nacional.
 
 ```{r}
 #| results: false
@@ -363,8 +388,8 @@ fem_rama4 <- ocupados |>
 Posteriormente, se realiza la inserción atípica, identificando a las personas que se encuentran en empleos atípicos según su sexo y la rama de actividad económica en la que trabajan. Para esto, se hace un `left join` entre la base de datos de ocupados y la clasificación de ramas feminizadas, masculinizadas o mixtas. Luego, se crea una nueva variable "atipico" que indica si una persona se encuentra en un empleo atípico (1) o no (0) según su sexo y el tipo de rama en la que trabaja. Finalmente, se crea la variable `sexo_label`para facilitar la interpretación de los resultados.
 
 ```{r}
-
-
+#| message: false
+#| warning: false
 #insercion atipica
 ocupados <- ocupados |>
   left_join(select(fem_rama4, rama4, tipo_rama), by = "rama4") |>
@@ -395,7 +420,10 @@ print(fig5_data)
 
 
 Por último, se construye el gráfico de barras para la **Figura 5** utilizando `ggplot2`. Se utiliza `geom_col` para crear las barras, y `geom_text` para añadir etiquetas con los porcentajes sobre cada barra. El eje X se personaliza para mostrar las categorías de sexo y número de hijos menores de 5 años, mientras que el eje Y se configura para mostrar porcentajes con un formato adecuado. Además, se añaden anotaciones para indicar claramente las categorías de hombres y mujeres, y se ajustan los márgenes del gráfico para evitar que las etiquetas se corten. Se guarda en formato PNG en la ruta *output/graphs/figura5_palmaetal2025.png* con una resolución de 300 dpi y un fondo blanco para asegurar la calidad de la imagen.
+
 ```{r}
+#| message: false
+#| warning: false
 #grafico figura 5
 p_fig5 <- ggplot(fig5_data, aes(x = x_grupo, y = pct)) +
   geom_col(fill = "#595959", width = 0.4) +
