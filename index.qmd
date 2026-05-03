@@ -96,13 +96,9 @@ Por último, y para el cuarto criterio de reproducibilidad, @palma_desafiando_20
 
 ## Resultado a reproducir
 
-Se seleccionó para la reproducción la **Figura 2**  de @palma_desafiando_2025, la cual corresponden a un gráfico de la segregación género en el mercado laboral 
-![Figura 2. Porcentaje de personas ocupadas por rama de actividad económica y sexo](input/images/fig_2_palma_et_al_2025_original.png)
+Se seleccionó para la reproducción la **Figura 2** de @palma_desafiando_2025, la cual corresponden a un gráfico de la segregación género en el mercado laboral ![Figura 2. Porcentaje de personas ocupadas por rama de actividad económica y sexo](input/images/fig_2_palma_et_al_2025_original.png)
 
-
-Además se seleccionó la **Figura 5** de @palma_desafiando_2025, gráfico de personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente.
-![Figura 5. Personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de 5 años](input/images/fig_5_palma_etal_2025.png)
-
+Además se seleccionó la **Figura 5** de @palma_desafiando_2025, gráfico de personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de cinco años, respectivamente. ![Figura 5. Personas de 15 años y más ocupadas en empleos atípicos según sexo y número de hijos menores de 5 años](input/images/fig_5_palma_etal_2025.png)
 
 ## Proceso de reproducción
 
@@ -155,6 +151,7 @@ La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **Git
 Ya teniendo la base de datos procesada en *input/data/proc* podemos reproducir la **Figura 2** y la **Figura 5** de @palma_desafiando_2025
 
 #### Figura 2
+
 Para reproducir la **Figura 2** de @palma_desafiando_2025, primeramente se deben seleccionar las siguientes variables:
 
 - **"rama1"**: variable que indica la rama de actividad económica a la que se dedica la persona, codificada según la clasificación CIIU a 1 dígito.
@@ -162,10 +159,6 @@ Para reproducir la **Figura 2** de @palma_desafiando_2025, primeramente se deben
 - **"sexo"**: variable que indica el sexo de la persona, codificada como 1 para hombres y 2 para mujeres.
 
 - **"activ"**: variable que indica la condición de actividad de la persona, codificada como 1 para ocupados, 2 para desocupados y 3 para inactivos.
-
-Para esta figura, se seleccionan únicamente las personas ocupadas y se recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones. Junto a esto, se filtran los datos perdidos para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
-
-La visualización se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir.
 
 ```{r}
 datos <- readRDS("input/data/proc/proc_casen22.rds")
@@ -203,6 +196,12 @@ datos <- datos %>% mutate(ocupacion = case_when(
   rama1 == 99 ~ NA			
 ))
 
+```
+
+Para esta figura, se seleccionan únicamente las personas ocupadas y se recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones.
+
+``` {r}
+
 datos <- datos %>%
   filter(!is.na(ocupacion))
 datos <- datos %>%
@@ -239,7 +238,7 @@ graf1 <- graf1 %>%
 
 #orden de mayor participación fem a menor
 orden <- graf1 %>%
-  filter(sexo == "Mujer") %>%  # ajusta según el valor exacto de tu variable
+  filter(sexo == "Mujer") %>%  # ajusta según el valor exacto de la variable
   arrange(porcentaje) %>%
   pull(ocupacion)
 
@@ -248,10 +247,7 @@ graf1 <- graf1 %>%
 
 ```
 
-
-
-
-
+Junto a esto, se filtran los datos perdidos y se recodifican la variable **sexo** para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
 
 #### Figura 5
 
@@ -291,7 +287,6 @@ proc_casen22 <-proc_casen22 |>
 
 
 ```
-
 
 Después de seleccionar las variables necesarias, se crean nuevas variables para identificar a los hijos menores de 5 años. Para esto, se utiliza la variable "pco2" para identificar a los hijos/as (códigos 4, 5 y 6) y luego se filtran aquellos que tienen una edad menor o igual a 5 años. Posteriormente, se agrupan los datos por "folio" y "nucleo" para calcular el número total de hijos menores de 5 años en cada hogar, y se crea una nueva variable categórica que clasifica a los hogares según el número de hijos menores de 5 años (ninguno, uno o dos o más).
 
@@ -376,13 +371,11 @@ fig5_data <- ocupados |>
 print(fig5_data)
 ```
 
-
-
-
-
 ### Reproducción
 
 # Figura 2
+
+La visualización de la **figura 2** se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir. Se guarda en formato PNG en la ruta *output/graphs/figura2_palmaetal2025.png* con una resolución de 300 dpi y un fondo blanco para asegurar la calidad de la imagen.
 
 ```{r}
 
@@ -420,8 +413,8 @@ ggsave(
 print(p_fig2)
 ```
 
-
 #### Figura 5
+
 Por último, se construye el gráfico de barras para la **Figura 5** utilizando `ggplot2`. Se utiliza `geom_col` para crear las barras, y `geom_text` para añadir etiquetas con los porcentajes sobre cada barra. El eje X se personaliza para mostrar las categorías de sexo y número de hijos menores de 5 años, mientras que el eje Y se configura para mostrar porcentajes con un formato adecuado. Además, se añaden anotaciones para indicar claramente las categorías de hombres y mujeres, y se ajustan los márgenes del gráfico para evitar que las etiquetas se corten. Se guarda en formato PNG en la ruta *output/graphs/figura5_palmaetal2025.png* con una resolución de 300 dpi y un fondo blanco para asegurar la calidad de la imagen.
 
 ```{r}
@@ -473,11 +466,9 @@ ggsave(
 )
 ```
 
-
 # Conclusiones
 
 El artículo de @palma_desafiando_2025 se construye a partir de una base de datos de acceso público, lo que representa un punto positivo en términos de reproducibilidad, dado que cualquier investigador puede acceder a la misma fuente. Además, cuenta con una metodología detallada que facilita la comprensión del proceso analítico. Sin embargo, la ausencia del código utilizado dificulta la replicación exacta de las figuras y sus resultados. Si bien fue posible replicarlas, los valores obtenidos no son idénticos a los del artículo original, diferencia que podría explicarse por algún procedimiento de procesamiento de la base de datos que no queda explicitado en el texto y que, por tanto, fue omitido durante el ejercicio de replicación. Por ello, se enfatiza la importancia de publicar de forma abierta los códigos empleados en cada investigación, como una práctica fundamental para garantizar una reproducibilidad plena. Ya que en algunos casos cambian los análisis, por ejemplo …
-
 
 # Recomendaciones
 
