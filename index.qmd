@@ -76,26 +76,23 @@ Una de las razones por el cual se seleccionó el articulo de @palma_desafiando_2
 
 # Evaluación de reproducibilidad
 
-- **Disponibilidad de datos**: ¿El artículo proporciona acceso a los datos utilizados en el estudio? Si no es así, ¿qué dificultades se enfrentaron para obtener los datos?
+- **Disponibilidad de datos**
 
-El artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
+Para evaluar el primer criterio de reproducibilidad, el artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
 
-- **Disponibilidad de código**: ¿El artículo proporciona acceso al código utilizado para el análisis? Si es así, ¿cómo se puede acceder?
+- **Disponibilidad de código**
 
-@palma_desafiando_2025 no presenta explícitamente el código utilizado para la creación de figuras. Ante esto, se contactó a una de las autoras del trabajo, quien si bien no proporcionó el código, ofreció asesoría sobre cómo replicar las figuras seleccionadas. Aquello, sumado a la metodología del texto, permitió orientar el proceso y llevar a cabo la replicación.
+En cuanto al segundo criterio de reproducibilidad, @palma_desafiando_2025 no presenta explícitamente el código utilizado para la creación de figuras. Ante esto, se contactó a una de las autoras del trabajo, quien si bien no proporcionó el código, ofreció asesoría sobre cómo replicar las figuras seleccionadas. Aquello, sumado a la metodología del texto, permitió orientar el proceso y llevar a cabo la replicación.
 
-- **Documentación**: ¿El artículo incluye una descripción clara de los métodos y procedimientos utilizados en el estudio? ¿Es suficiente para que otro investigador pueda replicar el estudio?
+- **Documentación**
 
-El artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras.
+Para el tercer criterio de reproducibilidad, el artículo de @palma_desafiando_2025 presenta una metodología clara, en la cual se explicitan las decisiones metodológicas tomadas, lo que facilita su comprensión. Sin embargo, no se presentan detalles específicos sobre los códigos utilizados para la creación de las figuras, lo que podría dificultar la replicación exacta de las figuras.
 
-- **Transparencia**: ¿El artículo proporciona información sobre los posibles conflictos de interés, financiamiento, y otros aspectos relacionados con la transparencia de la investigación?
+- **Transparencia**
 
-@palma_desafiando_2025 no presenta información explícita sobre posibles conflictos de interés. Mas si menciona que el estudio fue financiado por la Agencia Nacional de Investigación y Desarrollo ANID, lo que aporta a la transparencia de la investigación.
+Por último, y para el cuarto criterio de reproducibilidad, @palma_desafiando_2025 no presenta información explícita sobre posibles conflictos de interés. Sin embargo, si menciona que el estudio fue financiado por la Agencia Nacional de Investigación y Desarrollo ([ANID](https://anid.cl/)), lo que aporta a la transparencia de la investigación.
 
 # Análisis reproducible
-
-Seleccionar un resultado específico del artículo (por ejemplo, una tabla de resultados o una figura) y tratar de reproducirlo utilizando los datos y el código proporcionados. Documentar el proceso de reproducción, incluyendo cualquier dificultad encontrada y cómo se resolvió.
-
 
 ## Resultado a reproducir
 
@@ -108,8 +105,6 @@ Además se seleccionó la **Figura 5** de @palma_desafiando_2025, gráfico de pe
 
 
 ## Proceso de reproducción
-
-- Descripción detallada del proceso seguido para reproducir el resultado seleccionado, incluyendo los pasos realizados, las herramientas utilizadas, y cualquier ajuste necesario para lograr la reproducción. Incluye las siguientes sub secciones:
 
 ### Procesamiento
 
@@ -168,7 +163,7 @@ Para reproducir la **Figura 2** de @palma_desafiando_2025, primeramente se deben
 
 - **"activ"**: variable que indica la condición de actividad de la persona, codificada como 1 para ocupados, 2 para desocupados y 3 para inactivos.
 
-Para esta figura, se seleccionan únicamente las personas ocupadas y recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones. Junto a esto se filtran los datos perdidos para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
+Para esta figura, se seleccionan únicamente las personas ocupadas y se recodifican las ocupaciones según la CIIU asignando etiquetas de género "Hombre y Mujer" para el análisis segregado de ocupaciones. Junto a esto, se filtran los datos perdidos para calcular los porcentajes de personas hombres y mujeres según ocupación junto al porcentaje total de a nivel país para un posterior punto de referencia en el gráfico. Se combinan ambas tablas y se define el orden de las ocupaciones en el eje Y, basandose en la participación femenina (de menor a mayor).
 
 La visualización se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir.
 
@@ -481,7 +476,7 @@ ggsave(
 
 # Conclusiones
 
-El artículo de @palma se construye a partir de una base de datos de acceso público, lo que representa un punto positivo en términos de reproducibilidad, dado que cualquier investigador puede acceder a la misma fuente. Además, cuenta con una metodología detallada que facilita la comprensión del proceso analítico. Sin embargo, la ausencia del código utilizado dificulta la replicación exacta de las figuras y sus resultados. Si bien fue posible replicarlas, los valores obtenidos no son idénticos a los del artículo original, diferencia que podría explicarse por algún procedimiento de procesamiento de la base de datos que no queda explicitado en el texto y que, por tanto, fue omitido durante el ejercicio de replicación. Por ello, se enfatiza la importancia de publicar de forma abierta los códigos empleados en cada investigación, como una práctica fundamental para garantizar una reproducibilidad plena. Ya que en algunos casos cambian los análisis, por ejemplo …
+El artículo de @palma_desafiando_2025 se construye a partir de una base de datos de acceso público, lo que representa un punto positivo en términos de reproducibilidad, dado que cualquier investigador puede acceder a la misma fuente. Además, cuenta con una metodología detallada que facilita la comprensión del proceso analítico. Sin embargo, la ausencia del código utilizado dificulta la replicación exacta de las figuras y sus resultados. Si bien fue posible replicarlas, los valores obtenidos no son idénticos a los del artículo original, diferencia que podría explicarse por algún procedimiento de procesamiento de la base de datos que no queda explicitado en el texto y que, por tanto, fue omitido durante el ejercicio de replicación. Por ello, se enfatiza la importancia de publicar de forma abierta los códigos empleados en cada investigación, como una práctica fundamental para garantizar una reproducibilidad plena. Ya que en algunos casos cambian los análisis, por ejemplo …
 
 
 # Recomendaciones
@@ -501,4 +496,4 @@ Si bien el ejercicio de replicabilidad resultó más nutritivo al desarrollar lo
 
 ## Código
 
-- Incluir acá el código original, en caso de estar disponible.
+Al no estar disponible el código original, se presenta el código desarrollado para la reproducción de las figuras seleccionadas. Este código se encuentra organizado en secciones correspondientes a cada figura, con comentarios que explican cada paso del proceso.
