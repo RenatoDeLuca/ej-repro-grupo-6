@@ -78,7 +78,7 @@ Una de las razones por el cual se seleccionó el articulo de @palma_desafiando_2
 
 - **Disponibilidad de datos**
 
-Para evaluar el primer criterio de reproducibilidad, el artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
+Para evaluar el primer criterio de reproducibilidad, el artículo de @palma_desafiando_2025 menciona explícitamente que se usa como fuente de datos la encuesta CASEN 2022, la cual es una base de datos de acceso público, encontrándose disponible en el sitio web del [Ministerio de Desarrollo Social y Familia de Chile](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen). Por lo que no supuso una dificultad muy grande para el ejercicio. Sin embargo, la fuente de datos de la CASEN es muy extensa, por lo que hubo algunas dificultades para cargarla en **R**, por lo que se optó por seleccionar únicamente las variables necesarias para la construcción de las figuras seleccionadas.
 
 - **Disponibilidad de código**
 
