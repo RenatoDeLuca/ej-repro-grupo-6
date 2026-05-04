@@ -139,12 +139,12 @@ La base de datos, al tener un tamaño de 1,5GB, no es posible importarla a **Git
 ```{r}
 #Se carga base de datos CASEN desde local
 
-load("input/data/original/casen_2022.RData")
+#load("input/data/original/casen_2022.RData")
 # Seleccionar variables necesarias para reproducir el resultado
-proc_casen22 <- casen_2022 %>% select(sexo, pco2, activ, folio, nucleo, edad, rama1, rama4,expr)
+#proc_casen22 <- casen_2022 %>% select(sexo, pco2, activ, folio, nucleo, edad, rama1, rama4,expr)
 #Se guarda base de datos procesada
-saveRDS(proc_casen22, 
-  here("input", "data", "proc", "proc_casen22.rds"), compress = FALSE)
+#saveRDS(proc_casen22, 
+#  here("input", "data", "proc", "proc_casen22.rds"), compress = FALSE)
 
 ```
 
