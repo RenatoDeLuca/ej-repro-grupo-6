@@ -288,7 +288,7 @@ proc_casen22 <-proc_casen22 |>
 
 ```
 
-Después de seleccionar las variables necesarias, se crean nuevas variables para identificar a los hijos menores de 5 años. Para esto, se utiliza la variable "pco2" para identificar a los hijos/as (códigos 4, 5 y 6) y luego se filtran aquellos que tienen una edad menor o igual a 5 años. Posteriormente, se agrupan los datos por "folio" y "nucleo" para calcular el número total de hijos menores de 5 años en cada hogar, y se crea una nueva variable categórica que clasifica a los hogares según el número de hijos menores de 5 años (ninguno, uno o dos o más).
+Después de seleccionar las variables necesarias, se crean nuevas variables para identificar a los hijos menores de 5 años. Para esto, se utiliza la variable **"pco2"** para identificar a los hijos/as (códigos 4, 5 y 6) y luego se filtran aquellos que tienen una edad menor o igual a 5 años. Posteriormente, se agrupan los datos por "folio" y **"nucleo"** para calcular el número total de hijos menores de 5 años en cada hogar, y se crea una nueva variable categórica que clasifica a los hogares según el número de hijos menores de 5 años (ninguno, uno o dos o más).
 
 ```{r}
 #| results: false
@@ -313,7 +313,7 @@ proc_casen22 <- proc_casen22 |>
       levels = c("Ninguno", "Uno", "Dos o más")))
 ```
 
-Además, se crea una submuestra de personas ocupadas (mayores de 15 años y activos) para analizar la inserción laboral atípica según rama de actividad económica. Para esto, se filtran los datos para incluir solo a las personas que se encuentran ocupadas (activ == 1), mayores de 15 años y que no tienen datos perdidos en la variable "rama4". Luego, se calcula el porcentaje de mujeres en cada rama de actividad económica para clasificar las ramas como feminizadas, masculinizadas o mixtas. Finalmente, se identifica a las personas que se encuentran en empleos atípicos según su sexo y la rama de actividad económica en la que trabajan.
+Además, se crea una submuestra de personas ocupadas (mayores de 15 años y activos) para analizar la inserción laboral atípica según rama de actividad económica. Para esto, se filtran los datos para incluir solo a las personas que se encuentran ocupadas **(activ == 1)**, mayores de 15 años y que no tienen datos perdidos en la variable **"rama4"**. Luego, se calcula el porcentaje de mujeres en cada rama de actividad económica para clasificar las ramas como feminizadas, masculinizadas o mixtas. Finalmente, se identifica a las personas que se encuentran en empleos atípicos según su sexo y la rama de actividad económica en la que trabajan.
 
 ```{r}
 #| results: false
@@ -375,7 +375,7 @@ print(fig5_data)
 
 # Figura 2
 
-La visualización de la **figura 2** se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir. Se guarda en formato PNG en la ruta *output/graphs/figura2_palmaetal2025.png* con una resolución de 300 dpi y un fondo blanco para asegurar la calidad de la imagen.
+La visualización de la **Figura 2** se realiza a través de `ggplot2` para construir un gráfico de barras horizontales esquematizados. Se usa `geom_bar` con `position = "dodge"` para mostrar las barras de hombres y mujeres una al lado de la otra por cada categoría. Se añaden etiquetas de texto sobre las barras que muestran el porcentaje con un decimal, ajustadas con `hjust = -0.1` para que no se superpongan con la barra. El eje X se configura para mostrar marcas cada 10% (de 0% a 100%) y finalmente se aplican colores en escala de grises según la figura a reproducir. Se guarda en formato PNG en la ruta *output/graphs/figura2_palmaetal2025.png* con una resolución de 300 dpi y un fondo blanco para asegurar la calidad de la imagen.
 
 ```{r}
 
