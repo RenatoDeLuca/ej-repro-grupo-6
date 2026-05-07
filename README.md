@@ -1,5 +1,5 @@
 # Template reporte reproducibilidad
-
+Sitio publicado [**AQUÍ**](https://renatodeluca.github.io/ej-repro-grupo-6/)
 Link al reporte [**AQUÍ**](https://data-soc.github.io/template-repro/)
 
 Este repositorio contiene una plantilla para el reporte de reproducibilidad del Trabajo 1 del curso [Investigación Social Abierta](https://cienciasocialabierta.cl/2026/). La plantilla está diseñada para ser clonada y modificada por cada estudiante, siguiendo el protocolo [IPO](https://lisacoes.com/protocolos/a-ipo-rep/) (IInput-Processing-Output) y utilizando el formato Quarto.
