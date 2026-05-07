@@ -19,7 +19,25 @@ ej-repro-grupo-6/
  |- .gitignore
  |- .vscode/
  |  |- settings.json
+ |- README.html
  |- README.md
+ |- README_files/
+ |  |- libs/
+ |  |  |- bootstrap/
+ |  |  |  |- bootstrap-138a6193a3bd40baf1e627da441a4734.min.css
+ |  |  |  |- bootstrap-icons.css
+ |  |  |  |- bootstrap-icons.woff
+ |  |  |  |- bootstrap.min.js
+ |  |  |- clipboard/
+ |  |  |  |- clipboard.min.js
+ |  |  |- quarto-html/
+ |  |  |  |- anchor.min.js
+ |  |  |  |- popper.min.js
+ |  |  |  |- quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css
+ |  |  |  |- quarto.js
+ |  |  |  |- tabsets/
+ |  |  |  |- tippy.css
+ |  |  |  |- tippy.umd.min.js
  |- index.html
  |- index.pdf
  |- index.qmd
